@@ -1,0 +1,47 @@
+Class Diagram:
+class Event
+{
+    - Title: string
+    - Description: string
+    - Date: DateTime
+    - Time: TimeSpan
+    - Address: Address
+
+    + GetStandardDetails(): string
+    + GetFullDetails(): string
+    + GetShortDescription(): string
+}
+
+class Lecture : Event
+{
+    - Speaker: string
+    - Capacity: int
+}
+
+class Reception : Event
+{
+    - RSVPEmail: string
+}
+
+class OutdoorGathering : Event
+{
+    - WeatherStatement: string
+}
+
+class Address
+{
+    - StreetAddress: string
+    - City: string
+    - State: string
+    - Country: string
+}
+
+Interaction:
+- Lecture, Reception, and OutdoorGathering inherit attributes and methods from the base Event class.
+- Each derived class adds its specific attributes (Speaker, Capacity, RSVPEmail, WeatherStatement).
+- GetStandardDetails(), GetFullDetails(), and GetShortDescription() produce marketing messages.
+Description:
+    The base class Event represents common event attributes, such as title, description, date, time, and address.
+    Derived classes (Lecture, Reception, OutdoorGathering) inherit from Event and add specific attributes.
+    The Address class holds address information used in events.
+    Users can create different types of events and obtain marketing messages with varying details based on the event type.

@@ -1,0 +1,54 @@
+Class Diagram:
+class Order
+{
+    - Products: List<Product>
+    - Customer: Customer
+
+    + CalculateTotalCost(): decimal
+    + GeneratePackingLabel(): string
+    + GenerateShippingLabel(): string
+}
+
+class Product
+{
+    - Name: string
+    - ProductId: int
+    - Price: decimal
+    - Quantity: int
+
+    + CalculatePrice(): decimal
+}
+
+class Customer
+{
+    - Name: string
+    - Address: Address
+
+    + IsInUSA(): bool
+}
+
+class Address
+{
+    - StreetAddress: string
+    - City: string
+    - State: string
+    - Country: string
+
+    + IsInUSA(): bool
+    + GetFullAddress(): string
+}
+
+Interaction:
+- Order contains a list of Products and a Customer.
+- CalculateTotalCost() computes the order total.
+- GeneratePackingLabel() and GenerateShippingLabel() produce labels.
+- Product calculates its price.
+- Customer checks if they are in the USA.
+- Address checks if it's in the USA and provides the full address.
+Description:
+    The Order class manages product orders, storing a list of products and customer information.
+    The Product class defines product attributes and a method to calculate the product price.
+    The Customer class contains customer information, including an Address object.
+    The Address class holds address details and methods to determine if it's in the USA and retrieve the full address.
+    Users can create orders with products and customers, calculate order costs, and generate labels.
+        

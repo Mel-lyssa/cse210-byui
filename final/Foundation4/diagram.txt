@@ -1,0 +1,47 @@
+Class Diagram:
+class Activity
+{
+    - Date: DateTime
+    - Minutes: int
+
+    + GetDistance(): double
+    + GetSpeed(): double
+    + GetPace(): double
+    + GetSummary(): string
+}
+
+class Running : Activity
+{
+    - Distance: double
+
+    + GetDistance(): double
+    + GetSpeed(): double
+    + GetPace(): double
+}
+
+class Cycling : Activity
+{
+    - Speed: double
+
+    + GetDistance(): double
+    + GetSpeed(): double
+    + GetPace(): double
+}
+
+class Swimming : Activity
+{
+    - Laps: int
+
+    + GetDistance(): double
+    + GetSpeed(): double
+    + GetPace(): double
+}
+
+Interaction:
+- Running, Cycling, and Swimming inherit attributes and methods from the base Activity class.
+- Each derived class overrides GetDistance(), GetSpeed(), and GetPace().
+- GetSummary() produces a summary string for each activity.
+Description:
+    The base class Activity defines shared attributes and virtual methods for distance, speed, pace, and summary.
+    Derived classes (Running, Cycling, Swimming) inherit from Activity and provide specific implementations of these methods.
+    Users can create different activity instances, calculate activity-specific metrics, and generate activity summaries.

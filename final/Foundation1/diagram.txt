@@ -1,0 +1,27 @@
+// Class Diagram:
+class Video
+{
+    - Title: string
+    - Author: string
+    - LengthInSeconds: int
+    - Comments: List<Comment>
+
+    + GetNumberOfComments(): int
+    + AddComment(comment: Comment): void
+}
+
+class Comment
+{
+    - CommenterName: string
+    - Text: string
+}
+
+ Interaction:
+- Video contains multiple Comments.
+- GetNumberOfComments() returns the count of comments for a Video.
+- AddComment(comment) adds a Comment to a Video.
+Description:
+    The Video class contains information about YouTube videos, such as the title, author, length, and a list of comments.
+    The Comment class represents individual comments, including the commenter's name and the comment text.
+    The Video class has methods to get the number of comments and add comments.
+    Users can create Video instances and add comments to them, and then retrieve information about the videos and comments.
