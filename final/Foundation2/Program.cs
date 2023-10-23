@@ -12,26 +12,29 @@ class Program
 
         Product product1 = new Product("Mirror", 1, 10.0m, 2);
         Product product2 = new Product("Table", 2, 15.0m, 1);
+        Product product3 = new Product("Sofa", 3, 20.0m, 1);
 
         Order order1 = new Order(customer1);
         Order order2 = new Order(customer2);
 
         order1.AddProduct(product1); 
         order1.AddProduct(product2);
+        order1.AddProduct(product3);
         order2.AddProduct(product1);
+        order2.AddProduct(product3);
 
         Console.WriteLine("Order 1");
         Console.WriteLine(order1.GeneratePackingLabel());
-        Console.WriteLine("Order 1");
         Console.WriteLine(order1.GenerateShippingLabel());
         Console.WriteLine($"Total Cost: ${order1.CalculateTotalCost()}");
 
-        Console.WriteLine();
+        Console.WriteLine("--------------------");
 
         Console.WriteLine("Order 2");
         Console.WriteLine(order2.GeneratePackingLabel());
-        Console.WriteLine("Order 2");
         Console.WriteLine(order2.GenerateShippingLabel());
         Console.WriteLine($"Total Cost: ${order2.CalculateTotalCost()}");
+        
+        Console.WriteLine("--------------------");
     }
 }
